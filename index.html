@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Portfólio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }body { 
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: white; 
+}
+
+header {
+  background: rgba(2, 6, 23, 0.9);
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #1e293b;
+  z-index: 1000;
+}
+
+header h1 { color: #38bdf8; letter-spacing: 1px; }
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+section { padding: 60px 20px; }
+
+.container { max-width: 1100px; margin: auto; }
+
+h2 {
+  margin-bottom: 30px;
+  color: #38bdf8;
+  border-left: 5px solid #38bdf8;
+  padding-left: 10px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.btn {
+  display: inline-block;
+  background: #38bdf8;
+  color: #000;
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #0ea5e9;
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+  border-top: 1px solid #1e293b;
+}
+
+  </style>
+</head>
+<body><header>
+  <h1>Meu Portfólio</h1>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#trabalhos">Trabalhos</a>
+  </nav>
+</header><section id="sobre">
+  <div class="container">
+    <h2>Sobre Mim</h2>
+    <div class="card">
+      <img src="eu/IMG_20260409_182403.jpg" alt="Minha Foto">
+      <p>Olá! Meu nome Samuel da Costa Oliveira, sou aluno da ETEC de são José dos Campos, estou atualmente no segundo módulo do curso de Desenvolvimento de Sistemas. Este portfólio foi criado para apresentar meus trabalhos desenvolvidos durante o semestre.</p>
+    </div>
+  </div>
+</section><section id="trabalhos">
+  <div class="container">
+    <h2>Trabalhos</h2><div class="card">
+  <h3>Trabalho 1</h3>
+  <p><b>Objetivo:</b> Desenvolver uma tela de apresentação hard skills e soft skills.</p>
+  <p><b>Comandos:</b>O código cria uma tela de perfil usando React Native, estruturada dentro de um SafeAreaView para respeitar os limites do dispositivo e um ScrollView para permitir rolagem do conteúdo. No topo, é exibido o nome do usuário, seguido de uma imagem de perfil estilizada dentro de um container com bordas arredondadas. Em seguida, há uma breve descrição e uma seção de habilidades organizada com flexDirection: "row", que posiciona dois cartões lado a lado: um para soft skills e outro para hard skills. Cada cartão contém um título e uma lista de habilidades. Por fim, há um rodapé com um texto de identificação da atividade. A estilização é feita com StyleSheet, definindo cores, tamanhos, espaçamentos e alinhamentos para criar um layout visual organizado e moderno.</b></p> 
+  <a href="https://snack.expo.dev/@samuelcoliveira/cards-flex" class="btn">Ver Projeto no Expo</a>
+  <div class="grid">
+    <img src="https://via.placeholder.com/300" alt="Imagem 1">
+  </div>
+</div>
+
+<div class="card">
+  <h3>Trabalho 2</h3>
+  <p><b>Objetivo:</b> qFlexDiretion RPG .</p>
+  <p><b>Comandos:</b> O código cria um card de personagem de RPG utilizando React Native, organizado dentro de um SafeAreaView para garantir que o conteúdo respeite os limites da tela e um ScrollView para permitir rolagem. No topo, é exibido o nome do personagem, seguido de uma imagem representando seu visual dentro de um container estilizado com bordas arredondadas. Abaixo, há uma breve descrição da classe do personagem. Em seguida, os atributos são organizados utilizando flexDirection: "row", permitindo que duas seções fiquem lado a lado, como status (força, agilidade, inteligência) e habilidades especiais. Cada seção é exibida em formato de card, contendo título e lista de informações. Por fim, há um rodapé com detalhes adicionais, como nível ou campanha. A estilização é feita com StyleSheet, definindo cores, espaçamentos e alinhamentos para criar um visual temático e organizado, semelhante a um card de RPG..</p>
+  <a href="https://snack.expo.dev/@samuelcoliveira/dante" class="btn">Ver Projeto no Expo</a>
+  <div class="grid">
+    <img src="eu/IMG_20260409_183341.jpg" alt="Imagem 1">
+  </div>
+</div>
+
+<div class="card">
+  <h3>Trabalho 3</h3>
+  <p><b>Objetivo:</b> Descreva aqui o objetivo do trabalho.</p>
+  <p><b>Comandos:</b> O código utiliza o componente TouchableOpacity do React Native para criar um botão interativo que responde ao toque do usuário. Esse componente envolve um elemento visual, geralmente um Text ou View, e aplica um efeito de opacidade quando pressionado, dando um feedback visual de interação. Dentro dele, é definida uma função no evento onPress, que é executada quando o botão é clicado, podendo realizar ações como exibir mensagens, navegar entre telas ou atualizar dados. A estilização do botão é feita com StyleSheet, definindo propriedades como cor de fundo, espaçamento, bordas e alinhamento do texto, garantindo um visual organizado e agradável. Dessa forma, o TouchableOpacity permite criar botões simples e funcionais, melhorando a interatividade da aplicação..</p>
+  <a href="https://snack.expo.dev/@samuelcoliveira/3-botoes" class="btn">Ver Projeto no Expo</a>
+  <div class="grid">
+    <img src="eu/IMG_20260409_183630.jpg" alt="Imagem 1">
+    <img src="eu/IMG_20260409_183642.jpg" alt="Imagem 2">
+  </div>
+</div>
+
+<div class="card">
+  <h3>Trabalho 4</h3>
+  <p><b>Objetivo:</b> Descreva aqui o objetivo do trabalho.</p>
+  <p><b>Comandos:</b> O código implementa um aplicativo em React Native utilizando Expo que apresenta um sistema de paginação com renderização condicional entre telas. Inicialmente, é exibido um menu com botões representando os filmes em cartaz. Cada botão, ao ser pressionado, aciona uma função através do evento onPress, que altera o estado da aplicação para identificar qual filme foi selecionado. Com base nesse estado, ocorre a renderização de uma nova tela que exibe a imagem do filme e um texto descritivo com suas informações. Essa troca de conteúdo é feita sem navegação externa, apenas utilizando renderização condicional dentro do próprio componente. Além disso, há um botão “voltar”, também implementado com TouchableOpacity, que redefine o estado e retorna à tela inicial com a lista de filmes. A estrutura utiliza componentes como View, Text, Image e ScrollView, enquanto o StyleSheet é responsável pela organização visual, garantindo um layout claro, funcional e agradável ao usuário.</p>
+  <a href="https://snack.expo.dev/@samuelcoliveira/filmess" class="btn">Ver Projeto no Expo</a>
+  <div class="grid">
+    <img src="eu/IMG_20260409_183716.jpg" alt="Imagem 1">
+    <img src="eu/IMG_20260409_183727.jpg" alt="Imagem 2">
+  </div>
+</div>
+
+  </div>
+</section><footer>
+  <p>© 2026 - Meu Portfólio</p>
+</footer><script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.style.transform = 'scale(1.02)';
+      setTimeout(() => card.style.transform = 'scale(1)', 200);
+    });
+  });
+</script></body>
+</html>

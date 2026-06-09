@@ -3,149 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio | Samuel Oliveira</title>
+  <title>Samuel Oliveira | Portfólio</title>
   <style>
-    /* 1. VARIÁVEIS CSS - Para facilitar o tema Claro/Escuro */
+    /* VARIÁVEIS CSS - Facilita a mudança de cores e a criação do Tema Claro/Escuro */
     :root {
-      --bg-color: #f8fafc;
-      --text-color: #0f172a;
-      --card-bg: #ffffff;
-      --primary-color: #0284c7;
-      --primary-hover: #0369a1;
-      --nav-bg: rgba(255, 255, 255, 0.9);
-      --border-color: #e2e8f0;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #0f172a;
+      --bg-color: #020617;
+      --bg-gradient: linear-gradient(135deg, #0f172a, #020617);
       --text-color: #f8fafc;
-      --card-bg: #1e293b;
+      --text-muted: #94a3b8;
       --primary-color: #38bdf8;
       --primary-hover: #0ea5e9;
-      --nav-bg: rgba(15, 23, 42, 0.9);
+      --card-bg: #1e293b;
+      --header-bg: rgba(2, 6, 23, 0.9);
       --border-color: #334155;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
     }
 
-    /* 2. RESET E ESTILOS GLOBAIS */
+    /* TEMA CLARO */
+    body.light-theme {
+      --bg-color: #f8fafc;
+      --bg-gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+      --text-color: #0f172a;
+      --text-muted: #475569;
+      --primary-color: #0284c7;
+      --primary-hover: #0369a1;
+      --card-bg: #ffffff;
+      --header-bg: rgba(255, 255, 255, 0.9);
+      --border-color: #cbd5e1;
+    }
+
+    /* RESET BÁSICO */
     * { 
       margin: 0; 
       padding: 0; 
       box-sizing: border-box; 
-      font-family: 'Segoe UI', Arial, sans-serif; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    }
+    
+    html { scroll-behavior: smooth; }
+
+    body { 
+      background: var(--bg-gradient);
+      color: var(--text-color); 
+      transition: background 0.3s, color 0.3s;
     }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
-      line-height: 1.6;
-    }
-
-    /* 3. CABEÇALHO E NAVEGAÇÃO */
+    /* CABEÇALHO */
     header {
-      background: var(--nav-bg);
-      padding: 15px 20px;
+      background: var(--header-bg);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-color);
       z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      transition: 0.3s;
     }
 
     header h1 { 
       color: var(--primary-color); 
+      letter-spacing: 1px; 
       font-size: 1.5rem;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+    nav { display: flex; align-items: center; gap: 20px; }
 
     nav a {
       color: var(--text-color);
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: 0.3s;
     }
 
     nav a:hover { color: var(--primary-color); }
 
-    .theme-btn {
+    /* BOTÃO DE TEMA */
+    #theme-toggle {
       background: none;
-      border: none;
-      font-size: 1.2rem;
-      cursor: pointer;
+      border: 1px solid var(--border-color);
       color: var(--text-color);
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: 0.3s;
     }
+    #theme-toggle:hover { border-color: var(--primary-color); }
 
-    /* 4. LAYOUT PRINCIPAL */
     section { padding: 80px 20px; }
-    .container { max-width: 1000px; margin: auto; }
+    .container { max-width: 1100px; margin: auto; }
 
     h2 {
       margin-bottom: 40px;
-      color: var(--text-color);
+      color: var(--primary-color);
       border-left: 5px solid var(--primary-color);
       padding-left: 15px;
       font-size: 2rem;
     }
 
-    /* 5. SEÇÃO SOBRE MIM */
+    /* SOBRE MIM - Layout Flexbox */
     .about-content {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 40px;
       background: var(--card-bg);
       padding: 30px;
       border-radius: 12px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       border: 1px solid var(--border-color);
     }
-
     .about-content img {
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--primary-color);
+      border: 4px solid var(--primary-color);
+    }
+    .about-text p {
+      line-height: 1.6;
+      color: var(--text-muted);
+      font-size: 1.1rem;
     }
 
-    /* 6. FILTROS (NOVA FUNCIONALIDADE) */
+    /* FILTROS DE PROJETOS */
     .filters {
       display: flex;
-      gap: 10px;
+      justify-content: center;
+      gap: 15px;
       margin-bottom: 30px;
       flex-wrap: wrap;
     }
-
     .filter-btn {
-      padding: 8px 16px;
       background: var(--card-bg);
-      color: var(--text-color);
       border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 20px;
       border-radius: 20px;
       cursor: pointer;
       transition: 0.3s;
       font-weight: bold;
     }
-
     .filter-btn.active, .filter-btn:hover {
       background: var(--primary-color);
       color: #fff;
       border-color: var(--primary-color);
     }
 
-    /* 7. CARTÕES DE TRABALHO */
+    /* CARDS DE TRABALHOS */
     .projects-grid {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
     }
 
@@ -153,205 +162,261 @@
       background: var(--card-bg);
       padding: 25px;
       border-radius: 12px;
-      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
       border: 1px solid var(--border-color);
-      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      border-color: var(--primary-color);
     }
 
-    .card h3 {
-      color: var(--primary-color);
+    .card h3 { margin-bottom: 10px; font-size: 1.4rem; }
+    
+    .card p { 
+      color: var(--text-muted); 
+      font-size: 0.95rem; 
+      line-height: 1.5; 
+      margin-bottom: 10px;
+      flex-grow: 1; 
+    }
+
+    /* BADGES/TAGS */
+    .tags {
+      display: flex;
+      gap: 10px;
       margin-bottom: 15px;
-      font-size: 1.4rem;
+    }
+    .tag {
+      font-size: 0.8rem;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--primary-color);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
     }
 
-    .card p { margin-bottom: 10px; }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
+    .grid-img {
+      display: flex;
+      gap: 10px;
       margin-top: 20px;
     }
-
-    .image-grid img {
-      width: 100%;
+    .grid-img img {
+      width: 50%;
       border-radius: 8px;
+      object-fit: cover;
       border: 1px solid var(--border-color);
     }
 
-    /* 8. BOTÕES */
     .btn {
       display: inline-block;
       background: var(--primary-color);
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 6px;
+      padding: 12px 20px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      text-align: center;
       margin-top: 15px;
-      transition: background 0.3s, transform 0.2s;
+      transition: 0.3s;
     }
+    .btn:hover { background: var(--primary-hover); transform: scale(1.03); }
 
-    .btn:hover {
-      background: var(--primary-hover);
-      transform: scale(1.02);
+    /* BOTÃO VOLTAR AO TOPO */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none; /* Escondido por padrão */
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      z-index: 1000;
     }
+    #back-to-top:hover { background: var(--primary-hover); transform: translateY(-5px); }
 
-    /* 9. RODAPÉ */
     footer {
       text-align: center;
-      padding: 20px;
-      background: var(--card-bg);
+      padding: 30px;
+      background: var(--bg-color);
       border-top: 1px solid var(--border-color);
-      margin-top: 40px;
+      color: var(--text-muted);
     }
 
-    /* Classe utilitária para esconder elementos filtrados */
-    .hidden { display: none !important; }
-
-    /* Responsividade básica */
+    /* Responsividade para celular */
     @media (max-width: 768px) {
       .about-content { flex-direction: column; text-align: center; }
-      header { flex-direction: column; gap: 15px; }
+      nav { display: none; /* Pode ser substituído por um menu hambúrguer no futuro */ }
     }
   </style>
 </head>
-<body data-theme="dark">
+<body>
 
-<header>
-  <h1>{'</>'} Samuel Oliveira</h1>
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#trabalhos">Trabalhos</a>
-    <button class="theme-btn" id="themeToggle" title="Alternar Tema">☀️</button>
-  </nav>
-</header>
+  <header>
+    <h1>Samuel Oliveira</h1>
+    <nav>
+      <a href="#sobre">Sobre Mim</a>
+      <a href="#trabalhos">Projetos</a>
+      <button id="theme-toggle">☀️ Modo Claro</button>
+    </nav>
+  </header>
 
-<section id="sobre">
-  <div class="container">
-    <h2>Sobre Mim</h2>
-    <div class="about-content">
-      <img src="eu/IMG_20260409_182403.jpg" alt="Foto de Samuel Oliveira">
-      <div>
-        <p>Olá! Meu nome é <strong>Samuel da Costa Oliveira</strong>, sou aluno da ETEC de São José dos Campos e atualmente estou no segundo módulo do curso de <strong>Desenvolvimento de Sistemas</strong>.</p>
-        <br>
-        <p>Este portfólio foi criado para apresentar a minha evolução e os trabalhos desenvolvidos durante o semestre, com foco principal no desenvolvimento mobile usando React Native.</p>
+  <section id="sobre">
+    <div class="container">
+      <h2>Sobre Mim</h2>
+      <div class="about-content">
+        <img src="eu/IMG_20260409_182403.jpg" alt="Foto de Samuel Oliveira">
+        <div class="about-text">
+          <p>Olá! Meu nome é <strong>Samuel da Costa Oliveira</strong>. Sou aluno da ETEC de São José dos Campos e estou atualmente no segundo módulo do curso de Desenvolvimento de Sistemas.</p>
+          <br>
+          <p>Criei este portfólio para documentar minha evolução técnica e apresentar os trabalhos práticos desenvolvidos durante o semestre, com foco especial em desenvolvimento Mobile com React Native e Expo.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="trabalhos">
-  <div class="container">
-    <h2>Trabalhos Recentes</h2>
+  <section id="trabalhos">
+    <div class="container">
+      <h2>Meus Trabalhos</h2>
 
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">Todos</button>
-      <button class="filter-btn" data-filter="layout">Layout & UI</button>
-      <button class="filter-btn" data-filter="logica">Lógica & Navegação</button>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="layout">UI/Layout</button>
+        <button class="filter-btn" data-filter="logic">Interação/Lógica</button>
+      </div>
+
+      <div class="projects-grid">
+        <div class="card" data-category="layout">
+          <h3>Perfil Hard/Soft Skills</h3>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">UI/UX</span>
+          </div>
+          <p><b>Objetivo:</b> Desenvolver uma tela de apresentação de hard skills e soft skills.</p>
+          <p><b>Resumo:</b> O código cria uma tela de perfil estruturada com `SafeAreaView` e `ScrollView`. Utiliza `flexDirection: "row"` para posicionar cartões de habilidades lado a lado. A estilização via `StyleSheet` garante um layout moderno e responsivo.</p>
+          <div class="grid-img">
+            <img src="eu/IMG_20260409_193844.jpg" alt="Demonstração Trabalho 1 - Imagem 1">
+            <img src="#" alt="Demonstração Trabalho 1 - Imagem 2">
+          </div>
+          <a href="https://snack.expo.dev/@samuelcoliveira/cards-flex" class="btn" target="_blank">Ver Projeto no Expo</a>
+        </div>
+
+        <div class="card" data-category="layout">
+          <h3>RPG FlexDirection</h3>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Flexbox</span>
+          </div>
+          <p><b>Objetivo:</b> Criar um card de personagem de RPG aplicando conceitos de Flexbox.</p>
+          <p><b>Resumo:</b> Desenvolvido com `SafeAreaView` e organizado em seções lado a lado para exibir status (força, agilidade) e habilidades. Estilização temática focada em criação de um visual semelhante a um card físico de RPG.</p>
+          <div class="grid-img">
+            <img src="eu/IMG_20260409_183341.jpg" alt="Demonstração RPG - Imagem 1">
+            <img src="#" alt="Demonstração RPG - Imagem 2">
+          </div>
+          <a href="https://snack.expo.dev/@samuelcoliveira/dante" class="btn" target="_blank">Ver Projeto no Expo</a>
+        </div>
+
+        <div class="card" data-category="logic">
+          <h3>Botões Interativos</h3>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Eventos</span>
+          </div>
+          <p><b>Objetivo:</b> Aplicar interatividade com o componente TouchableOpacity.</p>
+          <p><b>Resumo:</b> Implementação de botões que respondem ao toque do usuário através de eventos `onPress`. O foco foi garantir feedback visual de interação (opacidade) e executar funções simples para demonstrar a interatividade da aplicação.</p>
+          <div class="grid-img">
+            <img src="eu/IMG_20260409_183630.jpg" alt="Demonstração Botões - Imagem 1">
+            <img src="eu/IMG_20260409_183642.jpg" alt="Demonstração Botões - Imagem 2">
+          </div>
+          <a href="https://snack.expo.dev/@samuelcoliveira/3-botoes" class="btn" target="_blank">Ver Projeto no Expo</a>
+        </div>
+
+        <div class="card" data-category="logic">
+          <h3>Catálogo de Filmes (Renderização Condicional)</h3>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Lógica de Estado</span>
+          </div>
+          <p><b>Objetivo:</b> Criar um sistema de paginação alternando telas com estado.</p>
+          <p><b>Resumo:</b> Aplicativo que apresenta um menu de filmes. Ao pressionar um botão, altera-se o estado da aplicação para renderizar condicionalmente os detalhes do filme selecionado. Inclui também um botão de retorno para redefinir o estado.</p>
+          <div class="grid-img">
+            <img src="eu/IMG_20260409_183716.jpg" alt="Demonstração Filmes - Imagem 1">
+            <img src="eu/IMG_20260409_183727.jpg" alt="Demonstração Filmes - Imagem 2">
+          </div>
+          <a href="https://snack.expo.dev/@samuelcoliveira/filmess" class="btn" target="_blank">Ver Projeto no Expo</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="projects-grid">
-      
-      <div class="card project-item" data-category="layout">
-        <h3>1. Perfil Profissional (Hard & Soft Skills)</h3>
-        <p><b>Objetivo:</b> Desenvolver uma tela de apresentação de hard skills e soft skills, dominando o alinhamento de itens.</p>
-        <p><b>Comandos:</b> O código cria uma tela de perfil usando React Native, estruturada dentro de um <code>SafeAreaView</code> e um <code>ScrollView</code>. A seção de habilidades é organizada com <code>flexDirection: "row"</code>, posicionando dois cartões lado a lado. A estilização é feita com <code>StyleSheet</code>, focando em criar um layout visual organizado e moderno.</p>
-        <a href="https://snack.expo.dev/@samuelcoliveira/cards-flex" target="_blank" class="btn">Ver Projeto no Expo</a>
-        <div class="image-grid">
-          <img src="eu/IMG_20260409_193844.jpg" alt="Tela do Trabalho 1">
-        </div>
-      </div>
+  <footer>
+    <p>© 2026 - Samuel da Costa Oliveira | ETEC São José dos Campos</p>
+  </footer>
 
-      <div class="card project-item" data-category="layout">
-        <h3>2. Ficha de Personagem (RPG)</h3>
-        <p><b>Objetivo:</b> Treinar o uso avançado de Flexbox criando um layout temático de RPG.</p>
-        <p><b>Comandos:</b> Cria um card de personagem de RPG organizando atributos com <code>flexDirection: "row"</code>. As seções ficam lado a lado (força, agilidade, inteligência) e habilidades especiais. Utiliza imagens arredondadas e estilização específica com <code>StyleSheet</code> para garantir a imersão temática de um jogo.</p>
-        <a href="https://snack.expo.dev/@samuelcoliveira/dante" target="_blank" class="btn">Ver Projeto no Expo</a>
-        <div class="image-grid">
-          <img src="eu/IMG_20260409_183341.jpg" alt="Tela do Trabalho 2">
-        </div>
-      </div>
+  <button id="back-to-top" title="Voltar ao topo">↑</button>
 
-      <div class="card project-item" data-category="logica">
-        <h3>3. Interatividade com Botões</h3>
-        <p><b>Objetivo:</b> Entender a interatividade com o usuário e o ciclo de vida de eventos de toque no React Native.</p>
-        <p><b>Comandos:</b> O código utiliza o componente <code>TouchableOpacity</code> para criar botões interativos. É definida uma função no evento <code>onPress</code>, que é executada quando o botão é clicado para alterar o estado da tela ou exibir mensagens. Uma excelente base para entender como a interface responde às ações do usuário.</p>
-        <a href="https://snack.expo.dev/@samuelcoliveira/3-botoes" target="_blank" class="btn">Ver Projeto no Expo</a>
-        <div class="image-grid">
-          <img src="eu/IMG_20260409_183630.jpg" alt="Tela do Trabalho 3 - Imagem 1">
-          <img src="eu/IMG_20260409_183642.jpg" alt="Tela do Trabalho 3 - Imagem 2">
-        </div>
-      </div>
+  <script>
+    // 1. FUNCIONALIDADE: Alternância de Tema (Dark/Light)
+    const themeBtn = document.getElementById('theme-toggle');
+    const body = document.body;
 
-      <div class="card project-item" data-category="logica">
-        <h3>4. Catálogo de Filmes (Renderização Condicional)</h3>
-        <p><b>Objetivo:</b> Criar um sistema de paginação simulado usando controle de estados dinâmicos (useState).</p>
-        <p><b>Comandos:</b> Implementa um app que apresenta botões representando filmes em cartaz. O evento <code>onPress</code> altera o estado da aplicação para renderizar uma nova "tela" condicionalmente (sem usar bibliotecas de navegação externas). Possui botão de voltar e manipulação de componentes de imagem dinâmicos.</p>
-        <a href="https://snack.expo.dev/@samuelcoliveira/filmess" target="_blank" class="btn">Ver Projeto no Expo</a>
-        <div class="image-grid">
-          <img src="eu/IMG_20260409_183716.jpg" alt="Catálogo de Filmes 1">
-          <img src="eu/IMG_20260409_183727.jpg" alt="Catálogo de Filmes 2">
-        </div>
-      </div>
+    themeBtn.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      if (body.classList.contains('light-theme')) {
+        themeBtn.innerText = '🌙 Modo Escuro';
+      } else {
+        themeBtn.innerText = '☀️ Modo Claro';
+      }
+    });
 
-      <div class="card project-item" data-category="logica">
-        <h3>5. Consumo de API (Previsão do Tempo / CEP) - Novo!</h3>
-        <p><b>Objetivo:</b> Integrar o aplicativo React Native com uma API externa usando requisições assíncronas.</p>
-        <p><b>Comandos:</b> Este exemplo demonstra o uso da função <code>fetch()</code> combinada com <code>async/await</code> para buscar dados de um servidor na internet (como uma API de CEP ou clima). Os dados retornados em formato JSON são salvos em um estado (<code>useState</code>) e renderizados na tela. O layout foi construído com <code>ActivityIndicator</code> para mostrar o carregamento enquanto a resposta da API não chega.</p>
-        <a href="#" class="btn">Projeto em Construção</a>
-      </div>
+    // 2. FUNCIONALIDADE: Filtro de Projetos
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
 
-    </div>
-  </div>
-</section>
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove classe ativa de todos
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Adiciona no clicado
+        btn.classList.add('active');
 
-<footer>
-  <p>© 2026 - Portfólio de Samuel Oliveira | Desenvolvido com HTML, CSS e JS</p>
-</footer>
+        const filterValue = btn.getAttribute('data-filter');
 
-<script>
-  // FUNCIONALIDADE 1: MODO CLARO / ESCURO
-  const themeToggle = document.getElementById('themeToggle');
-  const body = document.body;
-
-  themeToggle.addEventListener('click', () => {
-    if (body.getAttribute('data-theme') === 'dark') {
-      body.setAttribute('data-theme', 'light');
-      themeToggle.textContent = '🌙'; // Muda o ícone para lua
-    } else {
-      body.setAttribute('data-theme', 'dark');
-      themeToggle.textContent = '☀️'; // Muda o ícone para sol
-    }
-  });
-
-  // FUNCIONALIDADE 2: FILTRO DE PROJETOS
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projects = document.querySelectorAll('.project-item');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove classe 'active' de todos os botões e adiciona no clicado
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      // Mostra ou esconde os projetos baseado na categoria
-      projects.forEach(project => {
-        if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
-          project.classList.remove('hidden');
-        } else {
-          project.classList.add('hidden');
-        }
+        cards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'flex'; // Usando flex para manter a estrutura interna do card
+          } else {
+            card.style.display = 'none';
+          }
+        });
       });
     });
-  });
-</script>
 
+    // 3. FUNCIONALIDADE: Botão de Voltar ao Topo
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>

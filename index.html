@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samuel Oliveira | Portfólio</title>
   <style>
-    /* VARIÁVEIS CSS - Facilita a mudança de cores e a criação do Tema Claro/Escuro */
+    /* VARIÁVEIS CSS */
     :root {
       --bg-color: #020617;
       --bg-gradient: linear-gradient(135deg, #0f172a, #020617);
@@ -103,7 +103,7 @@
       font-size: 2rem;
     }
 
-    /* SOBRE MIM - Layout Flexbox */
+    /* SOBRE MIM */
     .about-content {
       display: flex;
       align-items: center;
@@ -190,6 +190,7 @@
       display: flex;
       gap: 10px;
       margin-bottom: 15px;
+      flex-wrap: wrap;
     }
     .tag {
       font-size: 0.8rem;
@@ -239,7 +240,7 @@
       height: 50px;
       font-size: 1.5rem;
       cursor: pointer;
-      display: none; /* Escondido por padrão */
+      display: none;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       transition: 0.3s;
       z-index: 1000;
@@ -254,10 +255,9 @@
       color: var(--text-muted);
     }
 
-    /* Responsividade para celular */
     @media (max-width: 768px) {
       .about-content { flex-direction: column; text-align: center; }
-      nav { display: none; /* Pode ser substituído por um menu hambúrguer no futuro */ }
+      nav { display: none; }
     }
   </style>
 </head>
@@ -297,6 +297,7 @@
       </div>
 
       <div class="projects-grid">
+        
         <div class="card" data-category="layout">
           <h3>Perfil Hard/Soft Skills</h3>
           <div class="tags">
@@ -309,7 +310,7 @@
             <img src="eu/IMG_20260409_193844.jpg" alt="Demonstração Trabalho 1 - Imagem 1">
             <img src="#" alt="Demonstração Trabalho 1 - Imagem 2">
           </div>
-          <a href="https://snack.expo.dev/@samuelcoliveira/cards-flex" class="btn" target="_blank">Ver Projeto no Expo</a>
+          <a href="https://snack.expo.dev/@samuelcoliveira/cards-flex" class="btn" target="_blank">Ver no Expo</a>
         </div>
 
         <div class="card" data-category="layout">
@@ -319,12 +320,12 @@
             <span class="tag">Flexbox</span>
           </div>
           <p><b>Objetivo:</b> Criar um card de personagem de RPG aplicando conceitos de Flexbox.</p>
-          <p><b>Resumo:</b> Desenvolvido com `SafeAreaView` e organizado em seções lado a lado para exibir status (força, agilidade) e habilidades. Estilização temática focada em criação de um visual semelhante a um card físico de RPG.</p>
+          <p><b>Resumo:</b> Desenvolvido com `SafeAreaView` e organizado em seções lado a lado para exibir status e habilidades. Estilização temática focada em criação de um visual semelhante a um card físico de RPG.</p>
           <div class="grid-img">
             <img src="eu/IMG_20260409_183341.jpg" alt="Demonstração RPG - Imagem 1">
             <img src="#" alt="Demonstração RPG - Imagem 2">
           </div>
-          <a href="https://snack.expo.dev/@samuelcoliveira/dante" class="btn" target="_blank">Ver Projeto no Expo</a>
+          <a href="https://snack.expo.dev/@samuelcoliveira/dante" class="btn" target="_blank">Ver no Expo</a>
         </div>
 
         <div class="card" data-category="logic">
@@ -334,74 +335,75 @@
             <span class="tag">Eventos</span>
           </div>
           <p><b>Objetivo:</b> Aplicar interatividade com o componente TouchableOpacity.</p>
-          <p><b>Resumo:</b> Implementação de botões que respondem ao toque do usuário através de eventos `onPress`. O foco foi garantir feedback visual de interação (opacidade) e executar funções simples para demonstrar a interatividade da aplicação.</p>
+          <p><b>Resumo:</b> Implementação de botões que respondem ao toque através de eventos `onPress`. O foco foi garantir feedback visual de interação (opacidade) e executar funções simples.</p>
           <div class="grid-img">
             <img src="eu/IMG_20260409_183630.jpg" alt="Demonstração Botões - Imagem 1">
             <img src="eu/IMG_20260409_183642.jpg" alt="Demonstração Botões - Imagem 2">
           </div>
-          <a href="https://snack.expo.dev/@samuelcoliveira/3-botoes" class="btn" target="_blank">Ver Projeto no Expo</a>
+          <a href="https://snack.expo.dev/@samuelcoliveira/3-botoes" class="btn" target="_blank">Ver no Expo</a>
         </div>
 
         <div class="card" data-category="logic">
-          <h3>Catálogo de Filmes (Renderização Condicional)</h3>
+          <h3>Catálogo de Filmes</h3>
           <div class="tags">
             <span class="tag">React Native</span>
             <span class="tag">Lógica de Estado</span>
           </div>
           <p><b>Objetivo:</b> Criar um sistema de paginação alternando telas com estado.</p>
-          <p><b>Resumo:</b> Aplicativo que apresenta um menu de filmes. Ao pressionar um botão, altera-se o estado da aplicação para renderizar condicionalmente os detalhes do filme selecionado. Inclui também um botão de retorno para redefinir o estado.</p>
+          <p><b>Resumo:</b> Ao pressionar um botão, altera-se o estado da aplicação para renderizar condicionalmente os detalhes do filme selecionado, sem navegação externa.</p>
           <div class="grid-img">
             <img src="eu/IMG_20260409_183716.jpg" alt="Demonstração Filmes - Imagem 1">
             <img src="eu/IMG_20260409_183727.jpg" alt="Demonstração Filmes - Imagem 2">
           </div>
-          <a href="https://snack.expo.dev/@samuelcoliveira/filmess" class="btn" target="_blank">Ver Projeto no Expo</a>
-
-          <div class="card" data-category="logic">
-          <h3>Navegação de Telas 2</h3>
-          <div class="tags">
-            <span class="tag">React Native</span>
-            <span class="tag">Navegação</span>
-          </div>
-          <p><b>Objetivo:</b> Avançar nos conceitos de fluxo de usuário e gerenciamento de múltiplas telas no ecossistema mobile.</p>
-          <p><b>Resumo:</b> O projeto aprofunda a alternância de estados e componentes para criar uma jornada de usuário fluida. Utiliza estruturas condicionais e callbacks para passar dados e parâmetros de uma tela para outra, simulando uma navegação nativa e robusta dentro do app.</p>
-          <div class="grid-img">
-            <img src="eu/IMG_NOME_DA_SUA_FOTO_1.jpg" alt="Demonstração Navegação 2 - Tela 1">
-            <img src="eu/IMG_NOME_DA_SUA_FOTO_2.jpg" alt="Demonstração Navegação 2 - Tela 2">
-          </div>
-          <a href="SEU_LINK_DO_EXPO_AQUI" class="btn" target="_blank">Ver Projeto no Expo</a>
-        </div>
-
-        <div class="card" data-category="layout">
-          <h3>Projeto Copa do Mundo</h3>
-          <div class="tags">
-            <span class="tag">React Native</span>
-            <span class="tag">Tematização</span>
-          </div>
-          <p><b>Objetivo:</b> Construir uma interface temática e dinâmica baseada em um evento real de grande escala.</p>
-          <p><b>Resumo:</b> Desenvolvimento de uma UI imersiva focada na exibição de informações da Copa do Mundo. O foco principal foi trabalhar com identidades visuais fortes, alinhamento de dados complexos (como tabelas de jogos e grupos) usando Flexbox, e organização visual rica para o usuário.</p>
-          <div class="grid-img">
-            <img src="eu/IMG_NOME_DA_SUA_FOTO_3.jpg" alt="Demonstração Copa do Mundo - Tela 1">
-            <img src="eu/IMG_NOME_DA_SUA_FOTO_4.jpg" alt="Demonstração Copa do Mundo - Tela 2">
-          </div>
-          <a href="SEU_LINK_DO_EXPO_AQUI" class="btn" target="_blank">Ver Projeto no Expo</a>
+          <a href="https://snack.expo.dev/@samuelcoliveira/filmess" class="btn" target="_blank">Ver no Expo</a>
         </div>
 
         <div class="card" data-category="logic">
-          <h3>FlatList com Filtro de Busca</h3>
+          <h3>Navegação Bottom Tabs</h3>
           <div class="tags">
             <span class="tag">React Native</span>
-            <span class="tag">Performance</span>
-            <span class="tag">Filtros</span>
+            <span class="tag">React Navigation</span>
           </div>
-          <p><b>Objetivo:</b> Manipular grandes volumes de dados de forma performática através de listagens filtráveis.</p>
-          <p><b>Resumo:</b> Implementação do componente `FlatList` integrado a um campo de busca (`TextInput`). A aplicação filtra os dados em tempo real utilizando funções de manipulação de arrays do JavaScript (como `.filter()`), otimizando o uso de memória do dispositivo e garantindo uma experiência rápida.</p>
+          <p><b>Objetivo:</b> Implementar navegação entre múltiplas telas utilizando o React Navigation com abas inferiores.</p>
+          <p><b>Resumo:</b> O código utiliza a biblioteca `@react-navigation/bottom-tabs`. Através do `Tab.Navigator`, o app gerencia a transição fluida entre a tela Home e diversas páginas temáticas de bandas/música, aplicando ícones dinâmicos do `expo/vector-icons` para cada rota específica.</p>
           <div class="grid-img">
-            <img src="eu/IMG_NOME_DA_SUA_FOTO_5.jpg" alt="Demonstração FlatList - Tela 1">
-            <img src="eu/IMG_NOME_DA_SUA_FOTO_6.jpg" alt="Demonstração FlatList - Tela 2">
+            <img src="eu/SUA_FOTO_AQUI.jpg" alt="Demonstração Nav - Imagem 1">
+            <img src="eu/SUA_FOTO_AQUI.jpg" alt="Demonstração Nav - Imagem 2">
           </div>
-          <a href="SEU_LINK_DO_EXPO_AQUI" class="btn" target="_blank">Ver Projeto no Expo</a>
+          <a href="LINK_DO_EXPO_AQUI" class="btn" target="_blank">Ver no Expo</a>
         </div>
+
+        <div class="card" data-category="layout">
+          <h3>App Copa do Mundo</h3>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">FlatList</span>
+            <span class="tag">Modais</span>
+          </div>
+          <p><b>Objetivo:</b> Desenvolver um aplicativo temático para exibir seleções de futebol e suas respectivas escalações detalhadas.</p>
+          <p><b>Resumo:</b> Utiliza `FlatList` para renderizar uma lista de países, intercalando as cores de fundo dos cards usando lógica matemática. Cada card de seleção é interativo e atualiza o estado para abrir um `Modal` sobreposto, que exibe os 11 titulares mapeando os dados do array original.</p>
+          <div class="grid-img">
+            <img src="eu/SUA_FOTO_AQUI.jpg" alt="Demonstração Copa - Imagem 1">
+            <img src="eu/SUA_FOTO_AQUI.jpg" alt="Demonstração Copa - Imagem 2">
+          </div>
+          <a href="LINK_DO_EXPO_AQUI" class="btn" target="_blank">Ver no Expo</a>
         </div>
+
+        <div class="card" data-category="logic">
+          <h3>Catálogo com Filtro de Busca</h3>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Filtros Dinâmicos</span>
+          </div>
+          <p><b>Objetivo:</b> Criar um catálogo interativo de jogos (Série Persona) com sistema de busca em tempo real e exibição de detalhes via Modal.</p>
+          <p><b>Resumo:</b> O estado da lista de jogos é gerenciado com `useState`. O `TextInput` captura a digitação do usuário, filtrando os dados renderizados pela `FlatList` com a função `.filter()`. Ao tocar num jogo, um `Modal` exibe as informações detalhadas de preço, ID, categoria e status do estoque.</p>
+          <div class="grid-img">
+            <img src="eu/SUA_FOTO_AQUI.jpg" alt="Demonstração FlatList - Imagem 1">
+            <img src="eu/SUA_FOTO_AQUI.jpg" alt="Demonstração FlatList - Imagem 2">
+          </div>
+          <a href="LINK_DO_EXPO_AQUI" class="btn" target="_blank">Ver no Expo</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -413,7 +415,7 @@
   <button id="back-to-top" title="Voltar ao topo">↑</button>
 
   <script>
-    // 1. FUNCIONALIDADE: Alternância de Tema (Dark/Light)
+    // 1. Alternância de Tema (Dark/Light)
     const themeBtn = document.getElementById('theme-toggle');
     const body = document.body;
 
@@ -426,22 +428,20 @@
       }
     });
 
-    // 2. FUNCIONALIDADE: Filtro de Projetos
+    // 2. Filtro de Projetos
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.card');
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Remove classe ativa de todos
         filterBtns.forEach(b => b.classList.remove('active'));
-        // Adiciona no clicado
         btn.classList.add('active');
 
         const filterValue = btn.getAttribute('data-filter');
 
         cards.forEach(card => {
           if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-            card.style.display = 'flex'; // Usando flex para manter a estrutura interna do card
+            card.style.display = 'flex'; 
           } else {
             card.style.display = 'none';
           }
@@ -449,7 +449,7 @@
       });
     });
 
-    // 3. FUNCIONALIDADE: Botão de Voltar ao Topo
+    // 3. Botão de Voltar ao Topo
     const backToTopBtn = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', () => {
